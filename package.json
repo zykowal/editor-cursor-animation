@@ -3,6 +3,9 @@
   "displayName": "Editor Cursor Animation",
   "description": "VS Code editor cursor animation extension",
   "publisher": "zykowal",
+  "repository": {
+    "url": "https://github.com/zykowal/editor-cursor-animation.git"
+  },
   "author": {
     "name": "zykowal",
     "url": "https://github.com/zykowal"
@@ -28,9 +31,6 @@
     "*"
   ],
   "extensionDependencies": [
-    "be5invis.vscode-custom-css"
-  ],
-  "extensionPack": [
     "be5invis.vscode-custom-css"
   ],
   "main": "./src/extension.js",
