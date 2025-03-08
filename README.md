@@ -1,37 +1,53 @@
 # Editor Cursor Animation
 
-一个为 VS Code 编辑器提供光标动画效果的扩展。
+A Visual Studio Code extension that adds smooth animation effects to your editor cursor.
 
-## 功能
+## Features
 
-- 为编辑器光标添加自定义动画效果
-- 通过命令可以轻松开启/关闭动画效果
+- Smooth cursor trail animation
 
-## 要求
+## Requirements
 
-- VS Code 版本 1.98.0 或更高
-- 必须安装 [Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) 扩展
+- [Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) extension
 
-## 使用方法
+## Installation
 
-1. 安装本扩展和 Custom CSS and JS Loader 扩展
-2. 按 `Ctrl+Shift+P`（Windows/Linux）或 `Cmd+Shift+P`（Mac）打开命令面板
-3. 输入 "Toggle Cursor Animation" 找到并执行命令
-4. 根据提示重新加载 VS Code 即可看到效果
+1. Install the [Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) extension
+2. Install this extension
+3. Reload VS Code
 
-## 注意事项
+## Usage
 
-- 每次切换动画状态后都需要重新加载 VS Code
-- 如果遇到问题，请确保 Custom CSS and JS Loader 扩展已正确安装和配置
+1. Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac) to open the command palette
+2. Type "Enable Cursor Animation" to enable the animation
+3. Type "Disable Cursor Animation" to disable the animation
 
-## 更新日志
+## Known Issues
 
-### 0.0.1
+- Cannot be customized
+- Multiple cursors will temporarily disable the animation
 
-- 初始版本发布
-- 添加基础光标动画效果
-- 添加切换动画的命令
+## Troubleshooting
 
-## 许可证
+If the animation doesn't work:
 
-MIT
+1. Make sure the Custom CSS and JS Loader extension is installed
+2. Try disabling and re-enabling the animation
+3. Reload VS Code window
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This extension is licensed under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- Thanks to the Custom CSS and JS Loader extension for making this possible
+- Inspired by [this](https://github.com/qwreey/dotfiles/tree/master/vscode/trailCursorEffect)
+
+## Support
+
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/yourusername/editor-cursor-animation/issues) on our GitHub repository.
