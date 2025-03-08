@@ -1,9 +1,7 @@
 const CONFIG = {
-  color: '#FFFFFF',          // 光标轨迹颜色
-  cursorStyle: 'block',      // 光标样式：'line' 或 'block'
-  trailLength: 4,            // 轨迹长度
-  pollingRate: 1000,         // 轮询率（毫秒）
-  fps: 60,                   // 动画帧率限制
+  color: '#FFFFFF',
+  trailLength: 4,
+  size: 7
 };
 
 const createTrail = (options) => {
@@ -15,12 +13,8 @@ const createTrail = (options) => {
   let particles = [];
   let width, height;
   let sizeX = options?.size || 3;
-  let sizeY = options?.sizeY || sizeX * 2.2;
+  let sizeY = sizeX * 2.2;
   let cursorsInitted = false;
-
-  // 使用 requestAnimationFrame 的时间戳
-  let lastFrameTime = 0;
-  const frameInterval = 1000 / CONFIG.fps;
 
   function updateSize(x, y) {
     width = x;
@@ -114,7 +108,7 @@ const createTrail = (options) => {
 
   let lastMinX = Infinity, lastMinY = Infinity, lastMaxX = -Infinity, lastMaxY = -Infinity;
 
-  function updateParticles(timestamp) {
+  function updateParticles() {
     if (!cursorsInitted) return;
 
     let minX = Infinity,
@@ -150,9 +144,9 @@ const createTrail = (options) => {
     updateParticles,
     move,
     updateSize,
-    updateCursorSize: (newSize, newSizeY) => {
+    updateCursorSize: (newSize) => {
       sizeX = newSize;
-      sizeY = newSizeY || newSize * 2.2;
+      sizeY = newSize * 2.2;
     }
   };
 };
@@ -250,13 +244,10 @@ const createCursorHandler = async (handlerFunctions) => {
   updateEditorSize();
 
   updateLoop();
-  handlerFunctions?.onReady();
 };
 
 let cursorCanvas, rainbowCursorHandle;
 createCursorHandler({
-  cursorUpdatePollingRate: CONFIG.pollingRate,
-
   onStarted: (editor) => {
     cursorCanvas = document.createElement('canvas');
     cursorCanvas.style.pointerEvents = 'none';
@@ -269,13 +260,10 @@ createCursorHandler({
     rainbowCursorHandle = createTrail({
       length: CONFIG.trailLength,
       color: CONFIG.color,
-      size: 7,
-      style: CONFIG.cursorStyle,
+      size: CONFIG.size,
       canvas: cursorCanvas
     });
   },
-
-  onReady: () => { },
 
   onCursorPositionUpdated: (x, y) => {
     rainbowCursorHandle.move(x, y);
@@ -294,6 +282,6 @@ createCursorHandler({
   },
 
   onLoop: () => {
-    rainbowCursorHandle.updateParticles(performance.now());
+    rainbowCursorHandle.updateParticles();
   }
 });
