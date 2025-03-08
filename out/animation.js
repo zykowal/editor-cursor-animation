@@ -1,7 +1,7 @@
 const CONFIG = {
   color: '#FFFFFF',
   trailLength: 4,
-  size: 7
+  size: 7,
 };
 
 const createTrail = (options) => {
@@ -140,14 +140,16 @@ const createTrail = (options) => {
     drawPath();
   }
 
+  function updateCursorSize(newSize, newSizeY) {
+    sizeX = newSize;
+    if (newSizeY) sizeY = newSizeY;
+  }
+
   return {
     updateParticles,
     move,
     updateSize,
-    updateCursorSize: (newSize) => {
-      sizeX = newSize;
-      sizeY = newSize * 2.2;
-    }
+    updateCursorSize,
   };
 };
 
@@ -244,10 +246,12 @@ const createCursorHandler = async (handlerFunctions) => {
   updateEditorSize();
 
   updateLoop();
+  handlerFunctions?.onReady();
 };
 
 let cursorCanvas, rainbowCursorHandle;
 createCursorHandler({
+
   onStarted: (editor) => {
     cursorCanvas = document.createElement('canvas');
     cursorCanvas.style.pointerEvents = 'none';
