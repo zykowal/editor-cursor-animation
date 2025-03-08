@@ -6,6 +6,7 @@
   "repository": {
     "url": "https://github.com/zykowal/editor-cursor-animation.git"
   },
+  "icon": "assets/logo.png",
   "author": {
     "name": "zykowal",
     "url": "https://github.com/zykowal"
@@ -33,7 +34,7 @@
   "extensionDependencies": [
     "be5invis.vscode-custom-css"
   ],
-  "main": "./src/extension.js",
+  "main": "./out/extension.js",
   "pricing": "Free",
   "contributes": {
     "commands": [
@@ -49,8 +50,8 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "npm install",
-    "watch": "npm install",
+    "compile": "mkdir -p out && cp src/* out/",
+    "watch": "mkdir -p out && cp src/* out/",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "vscode-test"

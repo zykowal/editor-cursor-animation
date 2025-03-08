@@ -14,3 +14,4 @@ node_modules/**
 tsconfig.json
 webpack.config.js
 temp/**
+src/**
