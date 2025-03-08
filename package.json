@@ -1,0 +1,66 @@
+{
+  "name": "editor-cursor-animation",
+  "displayName": "Editor Cursor Animation",
+  "description": "VS Code editor cursor animation extension",
+  "publisher": "zykowal",
+  "author": {
+    "name": "zykowal",
+    "url": "https://github.com/zykowal"
+  },
+  "license": "MIT",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "keywords": [
+    "cursor",
+    "animation",
+    "editor",
+    "cursor animation",
+    "editor cursor animation",
+    "custom css and js loader"
+  ],
+  "categories": [
+    "Other",
+    "Themes"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "extensionDependencies": [
+    "be5invis.vscode-custom-css"
+  ],
+  "extensionPack": [
+    "be5invis.vscode-custom-css"
+  ],
+  "main": "./src/extension.js",
+  "pricing": "Free",
+  "contributes": {
+    "commands": [
+      {
+        "command": "editor-cursor-animation.enableAnimation",
+        "title": "Enable Cursor Animation"
+      },
+      {
+        "command": "editor-cursor-animation.disableAnimation",
+        "title": "Disable Cursor Animation"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "npm install",
+    "watch": "npm install",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.93.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.16.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
