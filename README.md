@@ -50,4 +50,4 @@ This extension is licensed under the [MIT License](LICENSE).
 
 ## Support
 
-If you encounter any issues or have suggestions, please [open an issue](https://github.com/yourusername/editor-cursor-animation/issues) on our GitHub repository.
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/zykowal/editor-cursor-animation/issues) on our GitHub repository.
